@@ -6,69 +6,81 @@ const toast = useToast()
 
 const open = ref(false)
 
+const close = () => { open.value = false }
+
 const links = [[{
-  label: 'Home',
+  label: 'Today',
   icon: 'i-lucide-house',
   to: '/',
-  onSelect: () => {
-    open.value = false
-  }
+  onSelect: close
 }, {
-  label: 'Inbox',
-  icon: 'i-lucide-inbox',
-  to: '/inbox',
-  badge: '4',
-  onSelect: () => {
-    open.value = false
-  }
+  label: 'SEO',
+  icon: 'i-lucide-search',
+  to: '/seo',
+  onSelect: close
 }, {
-  label: 'Customers',
+  label: 'Clients',
   icon: 'i-lucide-users',
-  to: '/customers',
-  onSelect: () => {
-    open.value = false
-  }
+  to: '/clients',
+  onSelect: close
+}, {
+  label: 'Projects',
+  icon: 'i-lucide-folder-kanban',
+  to: '/projects',
+  onSelect: close
+}, {
+  label: 'Tools',
+  icon: 'i-lucide-toolbox',
+  to: '/tools',
+  onSelect: close
+}, {
+  label: 'Expenses',
+  icon: 'i-lucide-receipt',
+  to: '/expenses',
+  onSelect: close
+}, {
+  label: 'Calendar',
+  icon: 'i-lucide-calendar-days',
+  to: '/calendar',
+  onSelect: close
+}, {
+  label: 'Docs',
+  icon: 'i-lucide-book-open',
+  to: '/docs',
+  onSelect: close
 }, {
   label: 'Settings',
   to: '/settings',
   icon: 'i-lucide-settings',
-  defaultOpen: true,
+  defaultOpen: false,
   type: 'trigger',
   children: [{
     label: 'General',
     to: '/settings',
     exact: true,
-    onSelect: () => {
-      open.value = false
-    }
+    onSelect: close
   }, {
     label: 'Members',
     to: '/settings/members',
-    onSelect: () => {
-      open.value = false
-    }
+    onSelect: close
   }, {
     label: 'Notifications',
     to: '/settings/notifications',
-    onSelect: () => {
-      open.value = false
-    }
+    onSelect: close
   }, {
     label: 'Security',
     to: '/settings/security',
-    onSelect: () => {
-      open.value = false
-    }
+    onSelect: close
   }]
 }], [{
   label: 'Feedback',
   icon: 'i-lucide-message-circle',
-  to: 'https://github.com/nuxt-ui-templates/dashboard',
+  to: 'https://github.com/Caceras/dashboard',
   target: '_blank'
 }, {
   label: 'Help & Support',
   icon: 'i-lucide-info',
-  to: 'https://github.com/nuxt-ui-templates/dashboard',
+  to: 'https://github.com/Caceras/dashboard',
   target: '_blank'
 }]] satisfies NavigationMenuItem[][]
 
@@ -83,7 +95,7 @@ const groups = computed(() => [{
     id: 'source',
     label: 'View page source',
     icon: 'i-simple-icons-github',
-    to: `https://github.com/nuxt-ui-templates/dashboard/blob/main/app/pages${route.path === '/' ? '/index' : route.path}.vue`,
+    to: `https://github.com/Caceras/dashboard/blob/main/app/pages${route.path === '/' ? '/index' : route.path}.vue`,
     target: '_blank'
   }]
 }])
