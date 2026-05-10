@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/ui',
+    '@nuxt/content',
     '@vueuse/nuxt'
   ],
 
@@ -11,6 +12,16 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+
+  content: {
+    build: {
+      markdown: {
+        toc: {
+          searchDepth: 1
+        }
+      }
+    }
+  },
 
   routeRules: {
     '/api/**': {

@@ -44,6 +44,11 @@ const links = [[{
   to: '/calendar',
   onSelect: close
 }, {
+  label: 'Docs',
+  icon: 'i-lucide-book-open',
+  to: '/docs',
+  onSelect: close
+}, {
   label: 'Settings',
   to: '/settings',
   icon: 'i-lucide-settings',
