@@ -7,27 +7,40 @@ const toast = useToast()
 const open = ref(false)
 
 const links = [[{
-  label: 'Home',
+  label: 'Today',
   icon: 'i-lucide-house',
   to: '/',
-  onSelect: () => {
-    open.value = false
-  }
+  onSelect: () => { open.value = false }
 }, {
-  label: 'Inbox',
-  icon: 'i-lucide-inbox',
-  to: '/inbox',
-  badge: '4',
-  onSelect: () => {
-    open.value = false
-  }
+  label: 'SEO',
+  icon: 'i-lucide-trending-up',
+  to: '/seo',
+  onSelect: () => { open.value = false }
 }, {
-  label: 'Customers',
+  label: 'Clients',
   icon: 'i-lucide-users',
-  to: '/customers',
-  onSelect: () => {
-    open.value = false
-  }
+  to: '/clients',
+  onSelect: () => { open.value = false }
+}, {
+  label: 'Projects',
+  icon: 'i-lucide-folder-kanban',
+  to: '/projects',
+  onSelect: () => { open.value = false }
+}, {
+  label: 'Tools',
+  icon: 'i-lucide-toy-brick',
+  to: '/tools',
+  onSelect: () => { open.value = false }
+}, {
+  label: 'Expenses',
+  icon: 'i-lucide-receipt',
+  to: '/expenses',
+  onSelect: () => { open.value = false }
+}, {
+  label: 'Calendar',
+  icon: 'i-lucide-calendar',
+  to: '/calendar',
+  onSelect: () => { open.value = false }
 }, {
   label: 'Settings',
   to: '/settings',
@@ -38,37 +51,29 @@ const links = [[{
     label: 'General',
     to: '/settings',
     exact: true,
-    onSelect: () => {
-      open.value = false
-    }
+    onSelect: () => { open.value = false }
   }, {
     label: 'Members',
     to: '/settings/members',
-    onSelect: () => {
-      open.value = false
-    }
+    onSelect: () => { open.value = false }
   }, {
     label: 'Notifications',
     to: '/settings/notifications',
-    onSelect: () => {
-      open.value = false
-    }
+    onSelect: () => { open.value = false }
   }, {
     label: 'Security',
     to: '/settings/security',
-    onSelect: () => {
-      open.value = false
-    }
+    onSelect: () => { open.value = false }
   }]
 }], [{
   label: 'Feedback',
   icon: 'i-lucide-message-circle',
-  to: 'https://github.com/nuxt-ui-templates/dashboard',
+  to: 'https://github.com/Caceras/dashboard',
   target: '_blank'
 }, {
   label: 'Help & Support',
   icon: 'i-lucide-info',
-  to: 'https://github.com/nuxt-ui-templates/dashboard',
+  to: 'https://github.com/Caceras/dashboard',
   target: '_blank'
 }]] satisfies NavigationMenuItem[][]
 
@@ -83,7 +88,7 @@ const groups = computed(() => [{
     id: 'source',
     label: 'View page source',
     icon: 'i-simple-icons-github',
-    to: `https://github.com/nuxt-ui-templates/dashboard/blob/main/app/pages${route.path === '/' ? '/index' : route.path}.vue`,
+    to: `https://github.com/Caceras/dashboard/blob/main/app/pages${route.path === '/' ? '/index' : route.path}.vue`,
     target: '_blank'
   }]
 }])
