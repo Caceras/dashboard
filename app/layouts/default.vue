@@ -6,64 +6,66 @@ const toast = useToast()
 
 const open = ref(false)
 
+const close = () => { open.value = false }
+
 const links = [[{
   label: 'Today',
   icon: 'i-lucide-house',
   to: '/',
-  onSelect: () => { open.value = false }
+  onSelect: close
 }, {
   label: 'SEO',
-  icon: 'i-lucide-trending-up',
+  icon: 'i-lucide-search',
   to: '/seo',
-  onSelect: () => { open.value = false }
+  onSelect: close
 }, {
   label: 'Clients',
   icon: 'i-lucide-users',
   to: '/clients',
-  onSelect: () => { open.value = false }
+  onSelect: close
 }, {
   label: 'Projects',
   icon: 'i-lucide-folder-kanban',
   to: '/projects',
-  onSelect: () => { open.value = false }
+  onSelect: close
 }, {
   label: 'Tools',
-  icon: 'i-lucide-toy-brick',
+  icon: 'i-lucide-toolbox',
   to: '/tools',
-  onSelect: () => { open.value = false }
+  onSelect: close
 }, {
   label: 'Expenses',
   icon: 'i-lucide-receipt',
   to: '/expenses',
-  onSelect: () => { open.value = false }
+  onSelect: close
 }, {
   label: 'Calendar',
-  icon: 'i-lucide-calendar',
+  icon: 'i-lucide-calendar-days',
   to: '/calendar',
-  onSelect: () => { open.value = false }
+  onSelect: close
 }, {
   label: 'Settings',
   to: '/settings',
   icon: 'i-lucide-settings',
-  defaultOpen: true,
+  defaultOpen: false,
   type: 'trigger',
   children: [{
     label: 'General',
     to: '/settings',
     exact: true,
-    onSelect: () => { open.value = false }
+    onSelect: close
   }, {
     label: 'Members',
     to: '/settings/members',
-    onSelect: () => { open.value = false }
+    onSelect: close
   }, {
     label: 'Notifications',
     to: '/settings/notifications',
-    onSelect: () => { open.value = false }
+    onSelect: close
   }, {
     label: 'Security',
     to: '/settings/security',
-    onSelect: () => { open.value = false }
+    onSelect: close
   }]
 }], [{
   label: 'Feedback',

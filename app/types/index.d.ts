@@ -1,5 +1,7 @@
 import type { AvatarProps } from '@nuxt/ui'
 
+// ─── Legacy demo types (kept for backwards compat with template demos) ───────
+
 export type UserStatus = 'subscribed' | 'unsubscribed' | 'bounced'
 export type SaleStatus = 'paid' | 'failed' | 'refunded'
 
@@ -59,9 +61,14 @@ export interface Range {
   end: Date
 }
 
-// ── Works domain ──────────────────────────────────────────────────────────────
+// ─── Works domain (canonical) ────────────────────────────────────────────────
 
 export type ClientStatus = 'active' | 'paused' | 'archived' | 'prospect'
+export type ProjectStatus = 'planned' | 'in_progress' | 'review' | 'done' | 'blocked'
+export type Priority = 'low' | 'medium' | 'high'
+export type BillingCycle = 'monthly' | 'yearly' | 'one_time'
+export type ToolStatus = 'active' | 'trial' | 'cancelled'
+export type EventKind = 'meeting' | 'focus' | 'deadline' | 'review' | 'other'
 
 export interface Client {
   id: number
@@ -71,14 +78,11 @@ export interface Client {
   status: ClientStatus
   avatar_url: string | null
   location: string | null
-  hourly_rate: number | string | null
+  hourly_rate: string | number | null
   tags: string[]
   created_at: string
   updated_at: string
 }
-
-export type ProjectStatus = 'planned' | 'in_progress' | 'review' | 'done' | 'blocked'
-export type ProjectPriority = 'low' | 'medium' | 'high'
 
 export interface Project {
   id: number
@@ -86,9 +90,9 @@ export interface Project {
   client_id: number | null
   client_name?: string | null
   status: ProjectStatus
-  priority: ProjectPriority
+  priority: Priority
   progress: number
-  budget: number | string | null
+  budget: string | number | null
   deadline: string | null
   started_at: string | null
   finished_at: string | null
@@ -97,9 +101,6 @@ export interface Project {
   updated_at: string
 }
 
-export type BillingCycle = 'monthly' | 'yearly' | 'one_time'
-export type ToolStatus = 'active' | 'trial' | 'cancelled'
-
 export interface Tool {
   id: number
   name: string
@@ -107,7 +108,7 @@ export interface Tool {
   vendor: string | null
   plan: string | null
   billing_cycle: BillingCycle
-  cost: number | string
+  cost: string | number
   currency: string
   renews_on: string | null
   owner: string | null
@@ -120,7 +121,7 @@ export interface Tool {
 export interface Expense {
   id: number
   description: string
-  amount: number | string
+  amount: string | number
   currency: string
   category: string
   vendor: string | null
@@ -135,8 +136,6 @@ export interface Expense {
   notes: string | null
   created_at: string
 }
-
-export type EventKind = 'meeting' | 'focus' | 'deadline' | 'review' | 'other'
 
 export interface CalendarEvent {
   id: number
