@@ -14,55 +14,8 @@ provide('navigation', navigation as Ref<ContentNavigationItem[] | null>)
 </script>
 
 <template>
-  <div class="min-h-svh bg-default">
-    <UHeader
-      :ui="{
-        root: 'bg-default/80 backdrop-blur',
-        container: 'max-w-(--ui-container)'
-      }"
-    >
-      <template #title>
-        <NuxtLink
-          to="/"
-          class="flex items-center gap-2 font-semibold text-default"
-        >
-          <UIcon
-            name="i-lucide-shapes"
-            class="size-5 text-primary"
-          />
-          <span>Works</span>
-          <span class="text-muted">/</span>
-          <span class="text-muted">Docs</span>
-        </NuxtLink>
-      </template>
-
-      <template #right>
-        <UContentSearchButton class="hidden lg:inline-flex" />
-        <UContentSearchButton
-          :label="null"
-          class="lg:hidden"
-        />
-        <UTooltip
-          text="Back to dashboard"
-          :kbd="['G', 'H']"
-        >
-          <UButton
-            to="/"
-            icon="i-lucide-layout-dashboard"
-            color="neutral"
-            variant="ghost"
-          />
-        </UTooltip>
-        <UColorModeButton />
-      </template>
-
-      <template #body>
-        <UContentNavigation
-          highlight
-          :navigation="navigation"
-        />
-      </template>
-    </UHeader>
+  <div class="min-h-svh flex flex-col bg-default">
+    <AppDocsHeader />
 
     <UMain>
       <UContainer>
@@ -80,6 +33,8 @@ provide('navigation', navigation as Ref<ContentNavigationItem[] | null>)
         </UPage>
       </UContainer>
     </UMain>
+
+    <AppDocsFooter />
 
     <ClientOnly>
       <LazyUContentSearch
